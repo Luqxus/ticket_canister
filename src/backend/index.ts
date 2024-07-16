@@ -9,6 +9,13 @@ class Ticket {
 	eventId: string;
 	ticketPrice: number;
 	expiresAt: Date;
+
+    constructor(ticketId: string, eventId: string, ticketPrice: number, expiresAt: Date) {
+        this.eventId = eventId;
+        this.expiresAt = expiresAt;
+        this.ticketPrice = ticketPrice;
+        this.ticketId = ticketId;
+    }
 }
 
 class Event {
@@ -19,11 +26,32 @@ class Event {
 	datetime: Date;
 	ticketPrice: number;
 	createdAt: Date;
+
+    constructor(eventId: string,
+        title: string,
+        description: string,
+        location: Location,
+        datetime: Date,
+        ticketPrice: number,
+        createdAt: Date) {
+            this.eventId =	eventId;
+            this.title =	title;
+            this.description =	description;
+            this.location =	location;
+            this.datetime =	datetime;
+            this.ticketPrice =	ticketPrice;
+            this.createdAt =	createdAt;
+        }
 }
 
 class Location {
 	latitude: number;
 	longitude: number;
+
+    constructor(latitude: number, longitude: number,) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 }
 
 const eventsStorage = StableBTreeMap<string, Event>(0);
